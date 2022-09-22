@@ -7,7 +7,14 @@ const Learn = () => {
 
   const topic = topics.find((topic) => topic.id === name);
 
-  return <h1>Learn {topic.id} </h1>;
+  return (
+    <>
+      <h1>{`Learn ${topic?.id ? topic.id : ""}`}</h1>
+      <a href="#" onClick={() => router.back()}>
+        Back
+      </a>
+    </>
+  );
 };
 
 export default Learn;
