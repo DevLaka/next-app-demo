@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import topics from "./api/topics";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,29 +14,25 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>Welcome to DevLaka Learning</h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Get started Learning
+          <code className={styles.code}>learn/code</code>
         </p>
 
         <div className={styles.grid}>
-          <Link href="/learn/next">
-            <a className={styles.card}>
-              <h2>Learn NextJS &rarr;</h2>
-              <p>Learn Next JS in 2 hours using Documentation.</p>
-            </a>
-          </Link>
-
-          <Link href="/learn/react">
-            <a className={styles.card}>
-              <h2>Learn ReactJS &rarr;</h2>
-              <p>Learn ReactJS JS in 2 hours using Documentation.</p>
-            </a>
-          </Link>
+          {topics.map((topic) => {
+            const { id } = topic;
+            return (
+              <Link href={`/learn/${id}`}>
+                <a className={styles.card}>
+                  <h2>Learn {topic.id} &rarr;</h2>
+                  <p>{topic.description}</p>
+                </a>
+              </Link>
+            );
+          })}
         </div>
       </main>
 
