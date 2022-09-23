@@ -25,7 +25,7 @@ export default function Home() {
           {topics.map((topic) => {
             const { id } = topic;
             return (
-              <Link href={`/learn/${id}`}>
+              <Link key={id} href={`/learn/${id}`}>
                 <a className={styles.card}>
                   <h2>Learn {topic.id} &rarr;</h2>
                   <p>{topic.description}</p>
