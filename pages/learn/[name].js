@@ -11,9 +11,6 @@ const Learn = () => {
   return (
     <Layout>
       <h1>{`Learn ${topic?.id ? topic.id : ""}`}</h1>
-      <a href="#" onClick={() => router.back()}>
-        Back
-      </a>
     </Layout>
   );
 };
