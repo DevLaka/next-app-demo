@@ -1,5 +1,5 @@
-import { RSC_MODULE_TYPES } from "next/dist/shared/lib/constants";
 import Layout from "../../components/Layout";
+import { handler } from "../api";
 const Posts = ({ results }) => {
   return (
     <Layout>
@@ -15,10 +15,7 @@ const Posts = ({ results }) => {
 
 // Runs at build time
 export async function getStaticProps() {
-  const URL = "https://jsonplaceholder.typicode.com/posts";
-  const response = await fetch(URL);
-  const data = await response.json();
-  console.log(data);
+  const results = await handler("https://jsonplaceholder.typicode.com/posts");
 
   return {
     props: {

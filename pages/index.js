@@ -4,8 +4,18 @@ import Link from "next/link";
 import topics from "./api/topics";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+  const handleOnChange = (e) => setQuery(e.target.value);
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/posts/${query}`);
+  };
+
   return (
     <div className={styles.container}>
       <Layout>
@@ -22,6 +32,11 @@ export default function Home() {
             Get started Learning
             <code className={styles.code}>learn/code</code>
           </p>
+
+          <h2>Search Posts</h2>
+          <form onSubmit={handleOnSubmit}>
+            <input type="text" onChange={handleOnChange} />
+          </form>
 
           <div className={styles.grid}>
             {topics.map((topic) => {
