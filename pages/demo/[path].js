@@ -51,12 +51,6 @@ export async function getStaticProps({ params }) {
       };
     }
   }
-
-  return {
-    props: {
-      results: data,
-    },
-  };
 }
 
 export default Posts;

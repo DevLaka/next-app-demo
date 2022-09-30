@@ -11,12 +11,12 @@ const links = [
   {
     title: "Todos",
     desc: "Here is all the Todos",
-    path: "/todos",
+    path: "todos",
   },
   {
     title: "Users",
     desc: "Here is all the users",
-    path: "/users",
+    path: "users",
   },
 ];
 
